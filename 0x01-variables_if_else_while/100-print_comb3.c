@@ -13,18 +13,19 @@ int main(void)
 
 	for (i = '0'; i <= '9'; i++)
 	{
-	for (j = i + 1; j <= '9'; j++)
-	{
-	if (j != i)
-	{
-		putchar(i);
-		putchar(j);
-	if (i == '8' && j == '9')
-		continue;
-		putchar(',');
-		putchar(' ');
-	}
-	}
+		for (j = i + 1; j <= '9'; j++)
+		{
+			if (j != i && i < '8' && j < '9')
+			{
+				putchar(i);
+				putchar(j);
+				if (i + j != 17)
+				{
+					putchar(',');
+					putchar(' ');
+				}
+			}
+		}
 	}
 	putchar('\n');
 	return (0);
