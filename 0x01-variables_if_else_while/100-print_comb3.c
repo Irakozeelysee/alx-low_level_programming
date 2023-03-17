@@ -19,11 +19,12 @@ int main(void)
 			{
 				putchar(i);
 				putchar(j);
-				if (i + j != 17)
+				if ((i == '8') && (j == '9'))
 				{
-					putchar(',');
-					putchar(' ');
+					continue;
 				}
+				putchar(',');
+				putchar(' ');
 			}
 		}
 	}
