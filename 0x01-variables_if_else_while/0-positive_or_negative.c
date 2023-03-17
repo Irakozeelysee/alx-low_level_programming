@@ -2,8 +2,8 @@
 #include <time.h>
 #include <stdio.h>
 
-/*
- *int main -Determine if number is positive or negative.
+/**
+ *main - Entry point.
  * Description: The if else condition test if number is negative or positive.
  * it prints out the results.
  * Return:0 (Success)
