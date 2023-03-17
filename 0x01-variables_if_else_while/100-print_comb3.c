@@ -15,7 +15,7 @@ int main(void)
 	{
 		for (j = i + 1; j <= '9'; j++)
 		{
-			if (j != i && i < '8' && j < '9')
+			if (j != i)
 			{
 				putchar(i);
 				putchar(j);
