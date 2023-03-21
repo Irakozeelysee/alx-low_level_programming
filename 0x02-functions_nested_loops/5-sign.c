@@ -3,6 +3,7 @@
 /**
  * print_sign -checks sign of a number.
  *
+ * @n: The number to be checked.
  * Return: 1 if positive, 0 if zero and -1 if neg.
  */
 
