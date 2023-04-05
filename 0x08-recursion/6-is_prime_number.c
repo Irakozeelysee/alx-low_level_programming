@@ -1,6 +1,21 @@
 #include "main.h"
-#include <stdio.h>
 
+int prime_number(int n, int i);
+/**
+ * prime_number - checks if number is divisable.
+ * @n: number to test.
+ * @i: number we use to divide.
+ * Return: number.
+ */
+
+int prime_number(int n, int i)
+{
+	if (i == 1)
+		return(1);
+	if (n % i == 0)
+		return (0);
+	return (prime_number(n, i - 1));
+}
 /**
  * is_prime_number -Checks prime number.
  * @n: number to be checked.
@@ -10,21 +25,7 @@
 
 int is_prime_number(int n)
 {
-	int i = 5;
-
 	if (n <= 1)
 		return (0);
-	if (n <= 3)
-		return (1);
-	if ((n % 2 == 0) || (n % 3 == 0))
-		return (0);
-	while (i * i <= n)
-	{
-		if ((n % i == 0) || (n % (i + 2) == 0))
-		{
-			return (0);
-		}
-		i += 6;
-	}
-	return (1);
+	return(prime_number(n, n - 1));
 }
