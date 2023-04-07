@@ -7,7 +7,6 @@
  * main -Calculated sum of digits
  * @argc: arguments.
  * @argv: arrays of arguments.
- * @arg: array of j
  * Return: 0.
  */
 
@@ -32,7 +31,7 @@ int main(int argc, char *argv[])
 				return (1);
 			}
 		}
-		sum += atoi (arg);
+		sum += atoi(arg);
 	}
 	printf("%d\n", sum);
 	return (0);
