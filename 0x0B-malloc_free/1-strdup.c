@@ -3,7 +3,7 @@
 #include <string.h>
 
 /**
- * *_strdup -returns a pointer to a newly allocated space.
+ *_strdup -returns pointer to newly space.
  * @str: duplicated of the string.
  * Return: NULL.
  */
