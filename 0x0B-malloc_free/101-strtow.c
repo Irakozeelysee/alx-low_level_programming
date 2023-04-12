@@ -29,11 +29,13 @@ char **strtow(char *str)
 	{
 		if (str[i] != ' ')
 		{
+
 			j = i;
-			while (j < len && str[j] != ' ')
-			{
-				j++;
-			}
+		       while (j < len && str[j] != ' ')
+		       {
+			       j++;
+		       }
+
 			word_len = j - i;
 			words[k] = malloc((word_len + 1) * sizeof(char));
 			if (words[k] == NULL)
