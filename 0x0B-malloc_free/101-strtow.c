@@ -2,15 +2,15 @@
 #include <stdlib.h>
 #include <string.h>
 
-int world_len (char *str);
-int count_words (char *str);
+int world_len(char *str);
+int count_words(char *str);
 /**
  * world_len -locates the index
  * @str: string to be used.
  * Return: index
  */
 
-int world_len (char *str)
+int world_len(char *str)
 {
 	int index = 0, len = 0;
 
@@ -27,7 +27,7 @@ int world_len (char *str)
  * Return: number of words.
  */
 
-int count_words (char *str)
+int count_words(char *str)
 {
 	int index = 0, words = 0, len = 0;
 
