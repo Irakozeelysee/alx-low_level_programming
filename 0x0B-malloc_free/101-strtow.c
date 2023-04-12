@@ -4,71 +4,41 @@
 
 /**
  * **strtow - splits a string into words.
+ * @str: string to use
  * Return: NULL if str == NULL or str == ""
  */
 
 
 char **strtow(char *str)
 {
-	int num_words;
-	int i;
-	char *start;
-	char *end;
-	char *word;
+	int len;
+	int i, j, k = 0;
 	char **words;
+	int word_len;
 
 	if (str == NULL || *str == '\0')
 	{
 		return (NULL);
 	}
-	words = (char **) malloc(sizeof(char *));
-	if (words == NULL)
+	len = strlen(str);
+	words = malloc((len + 1) * sizeof(char *));
+	for (i = 0; i < len; i++)
 	{
-		return (NULL);
-	}
-	num_words = 0;
-	start = NULL;
-	end = NULL;
-	while (*str != '\0')
-	{
-		while (*str == ' ')
+		if (str[i] != ' ')
 		{
-			str++;
-		}
-		start = str;
-		while (*str != ' ' && *str != '\0')
-		{
-			str++;
-		}
-		end = str;
-		word = (char *) malloc(end - start + 1);
-		if (word == NULL)
-		{
-			for (i = 0; i < num_words; i++)
+			j = i;
+			while (j < len && str[j] != ' ')
 			{
-				free(words[i]);
+				j++;
 			}
-			free(words);
-			return (NULL);
-		}
-		strncpy(word, start, end - start);
-		word[end - start] = '\0';
-		words[num_words] = word;
-		num_words++;
-		words = (char **) realloc(words, (num_words + 1) * sizeof(char *));
-		if (words == NULL)
-		{
-			for (i = 0; i < num_words; i++)
-			{
-				free(words[i]);
-			}
-			return (NULL);
-		}
-		while (*str == ' ')
-		{
-			str++;
+			word_len = j - i;
+			words[k] = malloc((word_len + 1) * sizeof(char));
+			strncpy(words[k], &str[i], word_len);
+			words[k][word_len] = '\0';
+			k++;
+			i = j;
 		}
 	}
-	words[num_words] = NULL;
+	words[k] = NULL;
 	return (words);
 }
