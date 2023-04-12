@@ -22,6 +22,9 @@ char **strtow(char *str)
 	}
 	len = strlen(str);
 	words = malloc((len + 1) * sizeof(char *));
+	if (words == NULL)
+		return (NULL);
+
 	for (i = 0; i < len; i++)
 	{
 		if (str[i] != ' ')
@@ -33,6 +36,13 @@ char **strtow(char *str)
 			}
 			word_len = j - i;
 			words[k] = malloc((word_len + 1) * sizeof(char));
+			if (words[k] == NULL)
+			{
+				for (j = 0; j < k; j++)
+					free(words[j]);
+				free(words);
+				return (NULL);
+			}
 			strncpy(words[k], &str[i], word_len);
 			words[k][word_len] = '\0';
 			k++;
