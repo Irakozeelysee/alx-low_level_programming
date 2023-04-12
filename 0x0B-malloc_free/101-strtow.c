@@ -21,7 +21,7 @@ char **strtow(char *str)
 		return (NULL);
 	}
 	len = strlen(str);
-	words = malloc((len + 1) * sizeof(char *));
+	words = malloc((k + 1) * sizeof(char *));
 	if (words == NULL)
 		return (NULL);
 
@@ -31,15 +31,14 @@ char **strtow(char *str)
 		{
 
 			j = i;
-		       while (j < len && str[j] != ' ')
-			       j++;
+			while (j < len && str[j] != ' ')
+			{
+				j++;
+			}
 		       word_len = j - i;
-			words[k] = malloc((word_len + 1) * sizeof(char));
+		       words[k] = malloc((word_len + 1) * sizeof(char));
 			if (words[k] == NULL)
 			{
-				for (k--; k >= 0; k--)
-					free(words[k]);
-				free(words);
 				return (NULL);
 			}
 			strncpy(words[k], &str[i], word_len);
