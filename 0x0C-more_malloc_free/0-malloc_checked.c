@@ -1,10 +1,10 @@
 #include "main.h"
 #include <stdlib.h>
 
-int maloc();
+int maloc(void);
 /**
  * malloc_checked -allocates memory.
- * @p: pointer
+ * @b: int to use.
  * Return: pointer
  */
 
@@ -20,13 +20,12 @@ void *malloc_checked(unsigned int b)
 }
 /**
  * maloc - allocates 10 bytes.
- * @p: pointer.
  * Return: 0.
  */
-
-int maloc()
+int maloc(void)
 {
 	void *p = malloc_checked(10);
+
 	free(p);
 	return (0);
 }
