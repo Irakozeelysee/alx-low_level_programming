@@ -7,12 +7,14 @@
  *@owner: owner
  * Return: nothing.
  */
-typedef struct dog
+
+struct dog
 {
-	char name[50];
+	char *name;
 	float age;
-	char owner[50];
-} dog_t;
+	char *owner;
+};
+typedef struct dog dog_t;
 void init_dog(struct dog *d, char *name, float age, char *owner);
 void print_dog(struct dog *d);
 
