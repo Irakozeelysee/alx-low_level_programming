@@ -4,9 +4,6 @@
 /**
  * print_dog -Prints a struct dog.
  * @d: difines the struct
- * @name: name declaration
- * @age: age declaration
- * @owner: owner declaration
  */
 
 void print_dog(struct dog *d)
