@@ -4,9 +4,12 @@
 #include"dog.h"
 
 /**
- * new_dog -Creates a new dog
+ * *new_dog - Creates a new dog
+ * @owner: name of owner
  * @name: name of new dog
  * @age: new dog age
+ *
+ * Return: NULL or New dog
  */
 
 dog_t *new_dog(char *name, float age, char *owner)
