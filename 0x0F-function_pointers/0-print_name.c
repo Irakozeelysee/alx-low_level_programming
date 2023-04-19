@@ -5,7 +5,6 @@
  * print_name - Prints a function name.
  * @name: a pointer to name.
  * @f: function
- * @char: character
  * Return: nothing.
  */
 
