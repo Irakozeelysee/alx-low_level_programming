@@ -11,21 +11,29 @@
 int main(int argc, char **argv)
 {
 	int i, num_bytes;
-	char *opcode_ptr = (char *)&main;
+	int (*address)(int, char **) = main;
+	unsigned char opcode;
 
 	if (argc != 2)
 	{
 		printf("Error\n");
-		return (1);
+		exit(1);
 	}
 	num_bytes = atoi(argv[1]);
 	if (num_bytes < 0)
 	{
 		printf("Error\n");
-		return (2);
+		exit(2);
 	}
 	for (i = 0; i < num_bytes; i++)
-		printf("%02hhx ", opcode_ptr[i]);
+	{
+		opcode = *(unsigned char *)address;
+		printf("%.2x", opcode);
+		if (i == num_bytes - 1)
+			continue;
+		printf(" ");
+		address++;
+	}
 	printf("\n");
 	return (0);
 }
