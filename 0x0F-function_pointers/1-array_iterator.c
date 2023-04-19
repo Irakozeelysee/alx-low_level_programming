@@ -4,7 +4,7 @@
  * a parameter on each element of an array
  * @array: array's pointer
  * @size: size of pointer.
- * @action
+ * @action: the action
  * Return: nothing.
  */
 
