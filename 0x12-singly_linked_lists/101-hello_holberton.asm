@@ -8,4 +8,4 @@ main:
 
 	mov eax, 0Ah
 	ret
-format: db 'Hello, Holberton', 0Ah,0
+format: db 'Hello, Holberton', 0Ah
