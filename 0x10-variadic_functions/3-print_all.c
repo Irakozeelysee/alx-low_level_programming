@@ -3,100 +3,51 @@
 #include <stdarg.h>
 
 /**
- * print_char - prints a character
- * @args: character
- * Return: nothing
- */
-
-void print_char(va_list args)
-{
-	char c = va_arg(args, int);
-
-	printf("%c", c);
-}
-/**
- * print_int -prints integer
- * @args: character
- * Return: nothing
- */
-
-void print_int(va_list args)
-{
-	int num = va_arg(args, int);
-
-	printf("%d", num);
-}
-
-/**
- *print_float -prints float
- * @args: character
- * Return: nothing
- */
-
-void print_float(va_list args)
-{
-	double num = va_arg(args, double);
-
-	printf("%f", num);
-}
-/**
- * print_string -prints float
- * @args: character
- * Return: nothing
- */
-
-void print_string(va_list args)
-{
-	char *s = va_arg(args, char *);
-
-	if (s)
-	{
-		printf("%s", s);
-	}
-	else
-	{
-		printf("(nil)");
-	}
-}
-/**
- * print_all -prints float
- * @format: charcter's format
- *
+ * print_all - prints a character
+ * @format: of character
  * Return: nothing
  */
 
 void print_all(const char * const format, ...)
 {
 	va_list args;
-	int index = 0;
-	char current_char = format[index];
+	char c_arg, *s_arg;
+	int i_arg, i = 0, j = 0;
+	float f_arg;
 
 	va_start(args, format);
-	while (current_char != '\0')
+	while (format && format[i])
 	{
-		if (current_char == 'c')
+		switch (format[i])
 		{
-			print_char(args);
+			case 'c':
+				c_arg = va_arg(args, int);
+				printf("%c", c_arg);
+				break;
+			case 'i':
+				i_arg = va_arg(args, int);
+				printf("%d", i_arg);
+				break;
+			case 'f':
+				f_arg = va_arg(args, double);
+				printf("%f", f_arg);
+				break;
+			case 's':
+				s_arg = va_arg(args, char *);
+				if (s_arg == NULL)
+					printf("(nil)");
+				else
+					printf("%s", s_arg);
+				break;
+			default:
+				j++;
+				break;
 		}
-		else if (current_char == 'i')
-		{
-			print_int(args);
-		}
-		else if (current_char == 'f')
-		{
-			print_float(args);
-		}
-		else if (current_char == 's')
-		{
-			print_string(args);
-		}
-		if (format[index + 1] != '\0')
-		{
+		if (format[i + 1] != '\0' && (format[i] == 'c' ||
+					format[i] == 'i' || format[i] == 'f' || format[i] == 's'))
 			printf(", ");
-		}
-		index++;
-		current_char = format[index];
+		i++;
 	}
-	printf("\n");
 	va_end(args);
+	printf("\n");
 }
