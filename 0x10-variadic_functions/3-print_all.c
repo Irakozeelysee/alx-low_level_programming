@@ -1,18 +1,17 @@
 #include "variadic_functions.h"
 #include <stdio.h>
 #include <stdarg.h>
-
 /**
  * print_all - prints a character
  * @format: of character
  * Return: nothing
  */
-
 void print_all(const char * const format, ...)
 {
 	va_list args;
-	char c_arg, *s_arg;
-	int i_arg, i = 0, j = 0;
+	char c_arg;
+	char *s_arg;
+	int i_arg, i = 0;
 	float f_arg;
 
 	va_start(args, format);
@@ -39,9 +38,6 @@ void print_all(const char * const format, ...)
 					printf("(nil)");
 				}
 				printf("%s", s_arg);
-				break;
-			default:
-				j++;
 				break;
 		}
 		if (format[i + 1] != '\0' && (format[i] == 'c' ||
