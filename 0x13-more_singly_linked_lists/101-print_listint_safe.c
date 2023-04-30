@@ -2,11 +2,11 @@
 #include <stdlib.h>
 #include "lists.h"
 size_t _listint_len(const listint_t *head);
-/*_listint_len - countes number of nodes
+/**
+ * _listint_len - countes number of nodes
  * @head: pointer to the head of the listint_t
  * Return: number of nodes
  */
-
 size_t _listint_len(const listint_t *head)
 {
 	const listint_t *men, *women;
@@ -50,7 +50,7 @@ size_t _listint_len(const listint_t *head)
 size_t print_listint_safe(const listint_t *head)
 {
 	size_t nodes, count = 0;
-	
+
 	nodes = _listint_len(head);
 	if (nodes == 0)
 	{
