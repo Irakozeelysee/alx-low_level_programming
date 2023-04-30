@@ -1,46 +1,48 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "lists.h"
+
 size_t _listint_len(const listint_t *head);
+
 /**
- * _listint_len - countes number of nodes
- * @head: pointer to the head of the listint_t
+ * _listint_len - counts number of nodes in a linked list
+ * @head: pointer to the head of the list
  * Return: number of nodes
  */
+
 size_t _listint_len(const listint_t *head)
 {
-	const listint_t *men, *women;
+	const listint_t *tortoise, *hare;
 	size_t nodes = 1;
 
 	if (head == NULL || head->next == NULL)
 		return (0);
-	men = head->next;
-	women = (head->next)->next;
-	while (women)
+	tortoise = head->next;
+	hare = (head->next)->next;
+	while (hare)
 	{
-		if (men == women)
+		if (tortoise == hare)
 		{
-			men = head;
-			while (men != women)
+			tortoise = head;
+			while (tortoise != hare)
 			{
 				nodes++;
-				men = men->next;
-				women = women->next;
+				tortoise = tortoise->next;
+				hare = hare->next;
 			}
-			men = men->next;
-			while (men != women)
+			tortoise = tortoise->next;
+			while (tortoise != hare)
 			{
 				nodes++;
-				men = men->next;
+				tortoise = tortoise->next;
 			}
 			return (nodes);
 		}
-		men = men->next;
-		women = (women->next)->next;
+		tortoise = tortoise->next;
+		hare = (hare->next)->next;
 	}
 	return (0);
 }
-
 /**
  * print_listint_safe - Prints a listint_t linked list.
  * @head: A pointer to the head of the listint_t list.
@@ -67,7 +69,7 @@ size_t print_listint_safe(const listint_t *head)
 			printf("[%p] %d\n", (void *) head, head->n);
 			head = head->next;
 		}
-		printf("-> [%p] %d]\n", (void *) head, head->n);
+		printf("-> [%p] %d\n", (void *) head, head->n);
 	}
 	return (nodes);
 }
