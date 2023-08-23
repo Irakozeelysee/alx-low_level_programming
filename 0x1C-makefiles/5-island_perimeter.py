@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+"""
+Permiter project.
+"""
 
 def island_perimeter(grid):
     """
