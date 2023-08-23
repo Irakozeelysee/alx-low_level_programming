@@ -1,0 +1,20 @@
+# Compiler and source files
+COMPILER = gcc
+SOURCE_FILES = main.c school.c
+OBJECT_FILES = $(SOURCE_FILES:.c=.o)
+EXECUTABLE_NAME = school
+
+# Default rule
+all: $(EXECUTABLE_NAME)
+
+# Rule to build the executable
+$(EXECUTABLE_NAME): $(OBJECT_FILES)
+	$(COMPILER) -o $@ $^
+
+# Rule to compile source files into object files
+%.o: %.c
+	$(COMPILER) -c $< -o $@
+
+# Clean rule to remove generated files
+clean:
+	rm -f $(OBJECT_FILES) $(EXECUTABLE_NAME)
