@@ -1,14 +1,16 @@
-COMPILER = gcc
-SOURCE_FILES = main.c school.c
-OBJECT_FILES = $(SOURCE_FILES:.c=.o)
+#Define variables
+
+CC = gcc
+SRC = main.c school.c
+OBJS = $(SRC:.c=.o)
 
 all: school
 
-school: $(OBJECT_FILES)
-	$(COMPILER) -o school $^
+school: $(OBJS)
+	$(CC) -o school $^
 
 %.o: %.c
-	$(COMPILER) -c $< -o $@
+	$(CC) -c $< -o $@
 
 clean:
-	rm -f $(OBJECT_FILES) school
+	rm -f $(OBJS)
