@@ -3,6 +3,7 @@
 Permiter project.
 """
 
+
 def island_perimeter(grid):
     """
     Calculates the perimeter of the island described in the grid.
